@@ -1,0 +1,40 @@
+jBikeStats - A Java wrapper for the BikeStats API
+
+
+How to Use
+----------
+
+Import the BikeStats.jar in your project and use the following code :
+
+1. To Retrieve all docking station
+
+BikeStats bikeStats = new BikeStats();
+List<DockingStation> dockStations = bikeStats.getAllDockingStation();
+
+for (DockingStation dockStation : dockStations) {
+
+// additional code goes here
+
+}
+
+
+2. To Retrieve a specific dockID 
+
+BikeStats bikeStats = new BikeStats();
+
+DockingStation station = bikeStats.getDockingStation(1);
+
+String dockName = station.getDockName();
+// additional code goes here
+
+
+3. To retrive the time when the data was updated( 24 hr format & British Standard Time )
+
+BikeStats bikeStats = new BikeStats();
+DockingStation station = bikeStats.getDockingStation(1);
+
+// Call to the getUpdatedTime() should be made after calling a method to retrieve a docking Station;
+// otherwise it will return a 'N/A' value or it will return a value in the past when the call was made.
+String updateTime = bikeStats.getUpdatedTime();
+
+// additional code goes here
